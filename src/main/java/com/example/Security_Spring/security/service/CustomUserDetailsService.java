@@ -12,6 +12,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private SecurityRepository securityRepository;
 
+    @Autowired
+    private BaseEntity baseEntity;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
