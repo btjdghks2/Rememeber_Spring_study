@@ -17,7 +17,7 @@ import java.security.cert.Extension;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    String password = passwordEncoder().encode("1111");
+
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -26,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        String password = passwordEncoder().encode("1111");
         auth.inMemoryAuthentication().withUser("user").password(password).roles("USER");
         auth.inMemoryAuthentication().withUser("manager").password(password).roles("MANAGER");
         auth.inMemoryAuthentication().withUser("admin").password(password).roles("ADMIN","USER","MANAGER");
